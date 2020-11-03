@@ -28,7 +28,8 @@ cluster using the [Helm](https://helm.sh) package manager.
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm install --name my-release incubator/buzzfeed-sso
+helm repo add minddoc https://minddocdev.github.io/charts
+helm install --name my-release minddoc/buzzfeed-sso
 ```
 
 The command deploys SSO on the Kubernetes cluster using the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -40,8 +41,9 @@ This chart has required variables, see [Configuration](#configuration).
 To uninstall/delete the `my-release` deployment:
 
 ```bash
-$ helm delete --purge my-release
+helm delete --purge my-release
 ```
+
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
@@ -104,15 +106,15 @@ Parameter | Description | Default
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```bash
-$ helm install --name my-release \
-    --set key_1=value_1,key_2=value_2 \
-    stable/buzzfeed-sso
+helm install --name my-release \
+  --set key_1=value_1,key_2=value_2 \
+  minddoc/buzzfeed-sso
 ```
 
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
-$ helm install --name my-release -f values.yaml stable/buzzfeed-sso
+helm install --name my-release -f values.yaml minddoc/buzzfeed-sso
 ```
 
 > **Tip**: This will merge parameters with [values.yaml](values.yaml), which does not specify all the required values
@@ -160,7 +162,7 @@ google:
 Therefore, you could push your own `values.yaml` to a repo and keep `secrets.yaml` locally safe, and then install/update the chart:
 
 ```bash
-$ helm install --name my-release -f values.yaml -f secrets.yaml stable/buzzfeed-sso
+helm install --name my-release -f values.yaml -f secrets.yaml minddoc/buzzfeed-sso
 ```
 
 Alternatively, you can specify your own secret key, if you have already created it in the cluster. The secret should follow the data format defined in `secret.yaml` (auth and proxy) and `google-secret.yaml` (google provider).
@@ -190,5 +192,5 @@ provider:
 You can update the chart values and trigger a pod reload. If the configmap changes, it will automatically retrieve the new values.
 
 ```bash
-$ helm upgrade -f values.yaml my-release stable/buzzfeed-sso
+helm upgrade -f values.yaml my-release minddoc/buzzfeed-sso
 ```
