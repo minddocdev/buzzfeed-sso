@@ -1,11 +1,13 @@
 # Buzzfeed SSO
 
+[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/minddocdev)](https://artifacthub.io/packages/search?repo=minddocdev)
+
 Single sign-on for your Kubernetes services using Google OAuth (more providers are welcomed)
 
-[Blogpost](https://tech.buzzfeed.com/unleashing-the-a6a1a5da39d6?gi=e6db395406ae)
-[Quickstart guide](https://github.com/buzzfeed/sso/blob/master/docs/quickstart.md)
-[SSO in Kubernetes with Google Auth](https://medium.com/@while1eq1/single-sign-on-for-internal-apps-in-kubernetes-using-google-oauth-sso-2386a34bc433)
-[Repo](https://github.com/buzzfeed/sso)
+- [Blogpost](https://tech.buzzfeed.com/unleashing-the-a6a1a5da39d6?gi=e6db395406ae)
+- [Quickstart guide](https://github.com/buzzfeed/sso/blob/master/docs/quickstart.md)
+- [SSO in Kubernetes with Google Auth](https://medium.com/@while1eq1/single-sign-on-for-internal-apps-in-kubernetes-using-google-oauth-sso-2386a34bc433)
+- [Repo](https://github.com/buzzfeed/sso)
 
 This helm chart is heavily inspired in [Buzzfeed's example](https://github.com/buzzfeed/sso/tree/master/quickstart/kubernetes), and provides a way of protecting Kubernetes services that have no authentication layer globally from a single OAuth proxy.
 
@@ -194,3 +196,21 @@ You can update the chart values and trigger a pod reload. If the configmap chang
 ```bash
 helm upgrade -f values.yaml my-release minddoc/buzzfeed-sso
 ```
+
+## Contributors
+
+This is the list of contributors to the original [incubator/buzfeed-sso](https://github.com/helm/charts/tree/master/incubator/buzzfeed-sso) chart:
+
+- @anas-aso
+- @cameronattard
+- @darioblanco
+- @dpeckett
+- @komljen
+- @nicolaspearson
+- @namm2
+- @omerlh
+- @StiviiK
+- @tuanahnguyen-ct
+- @willejs
+
+New contributors are always welcomed!
