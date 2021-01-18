@@ -34,7 +34,7 @@ spec:
         component: {{ $name }}-auth
         release: {{ .Release.Name }}
     spec:
-    {{- if .Values.provider.google.secret.serviceAccount }}
+    {{- if .Values.provider.google }}
       volumes:
         - name: google-service-account
           secret:
