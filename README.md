@@ -104,6 +104,7 @@ Parameter | Description | Default
 `ingress.tls` | tls certificates for the proxied hosts | `[]`
 `ingress.gcpBackendConfig` | GCP LB backend service configuration | `{}`
 `upstreams` | configuration of services that use sso | `[]`
+`imagePullSecrets` | list of names of secrets containing docker registry credentials | `[]`
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
