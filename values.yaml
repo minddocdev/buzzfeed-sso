@@ -132,3 +132,5 @@ upstreams: []
 #         - ^\/github-webhook\/$
 #       header_overrides:
 #         X-Frame-Options: DENY
+
+imagePullSecrets: []

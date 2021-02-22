@@ -34,6 +34,10 @@ spec:
         component: {{ $name }}-auth
         release: {{ .Release.Name }}
     spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
     {{- if .Values.provider.google }}
       volumes:
         - name: google-service-account
