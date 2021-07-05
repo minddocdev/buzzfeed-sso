@@ -56,34 +56,34 @@ spec:
                 secretKeyRef:
                   name: {{ $proxySecret }}
                   key: proxy-client-secret
-            - name: COOKIE_SECRET
+            - name: SESSION_COOKIE_SECRET
               valueFrom:
                 secretKeyRef:
                   name: {{ $proxySecret }}
                   key: proxy-cookie-secret
             {{- if .Values.proxy.defaultAllowedEmailDomains }}
             {{- if (eq "-" .Values.proxy.defaultAllowedEmailDomains) }}
-            - name: DEFAULT_ALLOWED_EMAIL_DOMAINS
+            - name: UPSTREAM_DEFAULT_EMAIL_DOMAINS
               value: ""
             {{- else }}
-            - name: DEFAULT_ALLOWED_EMAIL_DOMAINS
+            - name: UPSTREAM_DEFAULT_EMAIL_DOMAINS
               value: {{ .Values.proxy.defaultAllowedEmailDomains | quote }}
             {{- end }}
             {{- else }}
-            - name: DEFAULT_ALLOWED_EMAIL_DOMAINS
+            - name: UPSTREAM_DEFAULT_EMAIL_DOMAINS
               value: {{ .Values.emailDomain | quote }}
             {{- end }}
             {{- if .Values.whitelistedEmails }}
-            - name: DEFAULT_ALLOWED_EMAIL_ADDRESSES
+            - name: UPSTREAM_DEFAULT_EMAIL_ADDRESSES
               value: {{ .Values.whitelistedEmails }}
             {{- end }}
-            - name: UPSTREAM_CONFIGS
+            - name: UPSTREAM_CONFIGFILE
               value: /sso/upstream_configs.yml
-            - name: PROVIDER_URL
+            - name: PROVIDER_URL_EXTERNAL
               value: https://{{ .Values.auth.domain }}
-            - name: COOKIE_SECURE
+            - name: SESSION_COOKIE_SECURE
               value: "true"
-            - name: CLUSTER
+            - name: UPSTREAM_CLUSTER
               value: {{ .Values.cluster | quote }}
             - name: DEFAULT_PROVIDER_SLUG
               value: {{ .Values.provider.google.slug | default "oauth2" | quote }}
