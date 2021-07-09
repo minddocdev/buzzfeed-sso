@@ -68,6 +68,7 @@ Parameter | Description | Default
 `auth.nodeSelector` | node selector logic for auth pods | `{}`
 `auth.tolerations` | resource tolerations for auth pods | `{}`
 `auth.affinity` | node affinity for auth pods | `{}`
+`auth.podDisruptionBudget` | PodDisruptionBudget for auth pods | `{}`
 `auth.service.type` | type of auth service to create | `ClusterIP`
 `auth.service.port` | port for the http auth service | `80`
 `auth.secret` | secrets to be generated randomly with `openssl rand -base64 32 | head -c 32`. | REQUIRED if `auth.customSecret` is not set
@@ -84,6 +85,7 @@ Parameter | Description | Default
 `proxy.nodeSelector` | node selector logic for proxy pods | `{}`
 `proxy.tolerations` | resource tolerations for proxy pods | `{}`
 `proxy.affinity` | node affinity for proxy pods | `{}`
+`proxy.podDisruptionBudget` | PodDisruptionBudget for proxy pods | `{}`
 `proxy.service.type` | type of proxy service to create | `ClusterIP`
 `proxy.service.port` | port for the http proxy service | `80`
 `proxy.secret` | secrets to be generated randomly with `openssl rand -base64 32 | head -c 32 | base64`. | REQUIRED if `proxy.customSecret` is not set
