@@ -103,6 +103,7 @@ Parameter | Description | Default
 `ingress.hosts` | proxied hosts | `[]`
 `ingress.tls` | tls certificates for the proxied hosts | `[]`
 `ingress.gcpBackendConfig` | GCP LB backend service configuration | `{}`
+`ingress.ingressClassName` | [`spec.ingressClassName`](https://kubernetes.io/docs/concepts/services-networking/ingress/#deprecated-annotation) | `{}`
 `upstreams` | configuration of services that use sso | `[]`
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,

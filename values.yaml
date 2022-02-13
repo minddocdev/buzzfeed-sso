@@ -117,6 +117,7 @@ ingress:
   # timeoutSec: 60
   # connectionDraining:
   #   drainingTimeoutSec: 60
+  # ingressClassName: nginx
 
 upstreams: []
 # See https://github.com/buzzfeed/sso/blob/f437f237ac977201f15868601c9bc0e9dff11f40/docs/sso_config.md#proxy-config
